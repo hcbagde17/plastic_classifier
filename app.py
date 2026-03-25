@@ -4,7 +4,7 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 
-CLASS_NAMES = ['Mix Rigid', 'Mix PET', 'Mix HD', 'Mix PP']
+CLASS_NAMES = ['Mix HD', 'Mix PET','Mix PP','Mix Rigid']
 
 @st.cache_resource
 def load_model():
@@ -39,7 +39,7 @@ if uploaded_file is not None:
     predicted_index = int(np.argmax(prediction))
     predicted_food = CLASS_NAMES[predicted_index]
 
-    st.subheader(f"Predicted Food: **{predicted_food}**")
+    st.subheader(f"Predicted Plastic: **{predicted_food}**")
 
     # Show probability distribution
     st.bar_chart(prediction[0])
